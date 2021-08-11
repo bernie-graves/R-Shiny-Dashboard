@@ -22,4 +22,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run the docker image
-      run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:latest
+      run: docker run -dp --rm 3838:3838 berniegraves/shiny-dashboard:latest
