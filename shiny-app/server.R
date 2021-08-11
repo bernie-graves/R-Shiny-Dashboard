@@ -20,7 +20,7 @@ server <- function(input, output) {
       scale_y_continuous(labels = percent) +
       theme_bw() + 
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-      labs(title="Histogram", x = "runtime", y = "percent")
+      labs(title="Runtime Density Histogram", x = "runtime", y = "percent")
   })
 
 # budget vs desnity histogram/slider
@@ -32,7 +32,7 @@ server <- function(input, output) {
       scale_y_continuous(labels = percent) +
       theme_bw() + 
       theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-      labs(title="Histogram", x = "budget", y = "percent")
+      labs(title="Budget Density Histogram", x = "budget", y = "percent")
     
   })
   
