@@ -14,10 +14,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build -t berniegraves/shiny-dashboard:$(date +%s) .
-      
+  # this job deosn't work yet -- error: cant find repository berniegraves/shiny-dashboard
+  # try publishing to dockerhub and then pulling the image from there
+  # 
   run-image:
     needs: build
-    runs-on: berniegraves/shiny-dashboard:latest
+    runs-on: ubuntu-latest
     steps:
     - name: Run the docker image
       run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:latest
