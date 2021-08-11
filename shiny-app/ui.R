@@ -1,11 +1,10 @@
 library(shiny)
 library(shinydashboard)
-# check out ggplot2
 library(ggplot2)
+require(scales)
 
 # READ DATA
 movie_attributes <- read.csv(file = 'Attributes_DataFrame.csv')
-
 
 dashboardPage(
   
@@ -29,8 +28,8 @@ dashboardPage(
                         label = "Search...")
       )
     ),
+  
   dashboardBody(
-    
 # DASHBOARD page content
     tabItems(
       tabItem(tabName = "dashboard",
@@ -38,23 +37,41 @@ dashboardPage(
               
               # Boxes need to be put in a row (or column)
               fluidRow(
-                # Histogram
+                
+                # Runtime vs density Histogram
                 box(
-                  title = "Histogram", status = "primary", solidHeader = TRUE,
-                  plotOutput("plot1", height = 300)
+                  plotOutput("plot1", height = 300),
+                  title = "Runtime vs Density Histogram", status = "primary", solidHeader = TRUE
                 ),
                 
-                # scatter plot
+                # slider1
                 box(
-                  title = "scatter plot", status = "primary", solidHeader = TRUE,
+                  height = 375,
+                  title = "Runtime Controls", status = "warning", solidHeader = TRUE,
+                  #sliderInput("slider", "Budget in thousands of dollars:", 15, 356000, 180000),
+                  #sliderInput("slider_bins", "Runtime in minutes:", 39, 252, 185),
+                  sliderInput("slider_bins", "Number of Movies:", 1, 3400, 500),
+                  sliderInput("slider", "Runtime:", 39, 252, 185)
+                ),
+                
+                # Budget vs density Histogram
+                box(
                   plotOutput("plot2", height = 300),
+                  title = "Budget vs Density Histogram", status = "primary", solidHeader = TRUE
                 ),
                 
-                # slider
+                #slider2
                 box(
-                  title = "Movies", status = "warning", solidHeader = TRUE,
-                  sliderInput("slider", "Runtime in minutes:", 60, 220, 20),
-                  textInput("text", "Text input:")
+                  height = 375,
+                  title = "Budget Controls", status = "warning", solidHeader = TRUE,
+                  sliderInput("slider_bins2", "Number of Movies:", 1, 3400, 500),
+                  sliderInput("slider2", "Budget:", 15, 356000, 1000)
+                ),
+                
+                # runtime vs budget scatterplot
+                box(
+                  plotOutput("plot4", height = 300),
+                  title = "Runtime vs Budget", status = "primary", solidHeader = TRUE
                 ),
                 
                 # Tab box
