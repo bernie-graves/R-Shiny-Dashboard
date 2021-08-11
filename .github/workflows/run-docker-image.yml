@@ -15,4 +15,9 @@ jobs:
     - name: Build the Docker image
       run: docker build -t shiny-dashboard:$(date +%s) .
       
-    - run: docker run -dp 3838:3838 shiny-dashboard
+  run-image:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run the docker image
+      run: docker run -dp 3838:3838 shiny-dashboard
