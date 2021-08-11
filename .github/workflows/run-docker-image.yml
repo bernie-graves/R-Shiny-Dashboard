@@ -13,11 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build -t shiny-dashboard:$(date +%s) .
+      run: docker build -t berniegraves/shiny-dashboard:$(date +%s) .
       
   run-image:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: berniegraves/shiny-dashboard:latest
     steps:
     - name: Run the docker image
-      run: docker run -dp 3838:3838 shiny-dashboard:latest
+      run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:latest
