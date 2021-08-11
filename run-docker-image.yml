@@ -1,0 +1,18 @@
+name: Run Docker Image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build -t shiny-dashboard:$(date +%s) .
+      
+    - run: docker run -dp 3838:3838 shiny-dashboard
