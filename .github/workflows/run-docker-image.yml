@@ -42,4 +42,4 @@ jobs:
     - name: pull the image from dockerhub
       run: docker pull berniegraves/shiny-dashboard:main
     - name: Run the iamge
-      run: docker -dp run berniegraves/shiny-dashboard
+      run: docker run -dp berniegraves/shiny-dashboard
