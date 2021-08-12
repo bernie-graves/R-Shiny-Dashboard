@@ -35,8 +35,16 @@ server <- function(input, output) {
       labs(title="Budget Density Histogram", x = "budget", y = "percent")
     
   })
+ # budget vs revenue in billions scatterplot
+  output$plot3 <- renderPlot({
+    attribute_clean <- na.omit(movie_attributes)
+    attribute_clean2$budget_billion <- attribute_clean2$Budget / (10^6)
+    attribute_clean2$revenue_billion <- (attribute_clean2$Domestic / 10^6) + (attribute_clean2$International / 10^6)
+    plot(x=attribute_clean2$revenue_billion,y=attribute_clean2$budget_billion,
+        xlab = "Revenue (Billion)", ylab = "Budget (Billion)"))       
+  })
   
-  # runtime vs budget scatterplot
+ # runtime vs budget scatterplot
   output$plot4 <- renderPlot({
     plot(movie_attributes$Runtime, movie_attributes$Budget,
          xlab = "Runtime (minutes)", ylab = "Budget (thousands of dollars)")
