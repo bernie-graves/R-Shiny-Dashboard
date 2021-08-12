@@ -68,6 +68,12 @@ dashboardPage(
                   sliderInput("slider2", "Budget:", 15, 356000, 1000)
                 ),
                 
+                # budget vs revenue in billions scatterplot
+                box(
+                  plotOutput("plot3", height = 300),
+                  title = "Budget vs Revenue in billions", status = "primary", solidHeader = TRUE
+                ),
+                
                 # runtime vs budget scatterplot
                 box(
                   plotOutput("plot4", height = 300),
