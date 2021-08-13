@@ -6,42 +6,17 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   pull_request:
     branches: [ main ]
-
+    
 jobs:
-  push_to_registry:
-      name: Push Docker image to Docker Hub
-      runs-on: ubuntu-latest
-      steps:
-        - name: Check out the repo
-          uses: actions/checkout@v2
-
-        - name: Log in to Docker Hub
-          uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-          with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-
-        - name: Extract metadata (tags, labels) for Docker
-          id: meta
-          uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
-          with:
-            images: berniegraves/shiny-dashboard
-            
-        - name: Build and push Docker image
-          uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-          with:
-            context: .
-            push: true
-            tags: ${{ steps.meta.outputs.tags }}
-            labels: ${{ steps.meta.outputs.labels }}
-    # this job deosn't work yet -- error: cant find repository berniegraves/shiny-dashboard
-    # try publishing to dockerhub and then pulling the image from there
-    #
-  run_image:
-    needs: push_to_registry
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: pull the image from dockerhub
-        run: docker pull berniegraves/shiny-dashboard:main
-      - name: Run the iamge
-        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:main
+      - uses: actions/checkout@v2
+      
+      - name: docker build
+        run: |
+          docker build -t python-playground .
+      - name: run the image
+        run: docker run -dp 3838:3838 python-playground
+      - name: ping the endpoint
+        run: curl http://127.0.0.1:3838
