@@ -23,7 +23,7 @@ server <- function(input, output) {
       labs(title="Runtime Density Histogram", x = "runtime", y = "percent")
   })
 
-# budget vs desnity histogram/slider
+# budget vs density histogram/slider
   output$plot2 <- renderPlot({
     movie_budget <- as.data.frame(movie_attributes$Budget[15:input$slider2])
     ggplot(data = movie_budget) + aes(x = movie_budget[,1], y = ..density..) + 
@@ -37,11 +37,11 @@ server <- function(input, output) {
   })
  # budget vs revenue in billions scatterplot
   output$plot3 <- renderPlot({
-    attribute_clean <- na.omit(movie_attributes)
+    attribute_clean2 <- na.omit(movie_attributes)
     attribute_clean2$budget_billion <- attribute_clean2$Budget / (10^6)
     attribute_clean2$revenue_billion <- (attribute_clean2$Domestic / 10^6) + (attribute_clean2$International / 10^6)
     plot(x=attribute_clean2$revenue_billion,y=attribute_clean2$budget_billion,
-        xlab = "Revenue (Billion)", ylab = "Budget (Billion)"))       
+        xlab = "Revenue (Billion)", ylab = "Budget (Billion)")       
   })
   
  # runtime vs budget scatterplot
