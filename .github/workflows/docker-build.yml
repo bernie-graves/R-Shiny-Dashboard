@@ -15,8 +15,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: docker build
-        run: docker build -t shiny-dashboard .
+        run: docker build -t berniegraves/shiny-dashboard:$(date +%s) .
       - name: run image
-        run: docker run -dp 3838:3838 shiny-dashboard
+        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:$(date +%s)
       - name: Test endpoint
         run: curl http://127.0.0.1:3838
