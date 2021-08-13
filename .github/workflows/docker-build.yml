@@ -17,6 +17,6 @@ jobs:
       - name: docker build
         run: docker build -t berniegraves/shiny-dashboard:$(date +%s) .
       - name: run image
-        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:$(date +%s)
+        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:latest
       - name: Test endpoint
         run: curl http://127.0.0.1:3838
