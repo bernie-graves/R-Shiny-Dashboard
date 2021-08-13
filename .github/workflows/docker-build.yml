@@ -32,7 +32,7 @@ jobs:
           with:
             context: .
             push: true
-            tags: $test
+            tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
     # this job deosn't work yet -- error: cant find repository berniegraves/shiny-dashboard
     # try publishing to dockerhub and then pulling the image from there
@@ -42,6 +42,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pull the image from dockerhub
-        run: docker pull berniegraves/shiny-dashboard:test
+        run: docker pull berniegraves/shiny-dashboard
       - name: Run the iamge
-        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:test
+        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard
