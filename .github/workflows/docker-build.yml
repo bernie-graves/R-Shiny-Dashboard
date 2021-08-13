@@ -27,13 +27,13 @@ jobs:
           with:
             images: berniegraves/shiny-dashboard
             
-     - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
-        with:
-          context: .
-          push: true
-          tags: $test
-          labels: ${{ steps.meta.outputs.labels }}
+        - name: Build and push Docker image
+          uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+          with:
+            context: .
+            push: true
+            tags: $test
+            labels: ${{ steps.meta.outputs.labels }}
     # this job deosn't work yet -- error: cant find repository berniegraves/shiny-dashboard
     # try publishing to dockerhub and then pulling the image from there
     #
