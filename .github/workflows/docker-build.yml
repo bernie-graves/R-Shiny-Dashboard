@@ -19,5 +19,5 @@ jobs:
       - name: run and ping the image 
         run: docker run -dp 3838:3838 python-playground
       - name: curl
-        run: curl --local-port 3838 http://127.0.0.1
+        run: curl http://127.0.0.1:3838
 
