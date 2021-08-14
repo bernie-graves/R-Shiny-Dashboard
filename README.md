@@ -1,4 +1,11 @@
 # Movie Sales with a R Shiny Dashboard
+
+<p align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="Images/shiny_R_logo.png" alt="Logo" width="400" height="200">
+  </a>
+</p>
+
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
