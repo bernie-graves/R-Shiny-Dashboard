@@ -19,6 +19,5 @@ jobs:
       - name: run the image
         run: docker run -dp 3838:3838 python-playground
       - name: curl
-        uses: wei/curl@master
-        with:
-          args: https://www.google.com/
+        run: curl --local-port http://127.0.0.1:3838
+
