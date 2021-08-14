@@ -21,4 +21,4 @@ jobs:
       - name: curl
         uses: wei/curl@master
         with:
-          args: http://127.0.0.1:3838
+          args: https://www.google.com/
