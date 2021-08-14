@@ -16,8 +16,8 @@ jobs:
       - name: docker build
         run: |
           docker build -t python-playground .
-      - name: run the image
-        run: docker run -dp 3838:3838 python-playground
-      - name: curl
-        run: curl http://localhost:3838
+      - name: run and ping the image 
+        run: |
+          docker run -dp 3838:3838 python-playground
+          curl http://localhost:3838
 
