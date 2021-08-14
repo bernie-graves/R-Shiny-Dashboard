@@ -18,5 +18,7 @@ jobs:
           docker build -t python-playground .
       - name: run the image
         run: docker run -dp 3838:3838 python-playground
-      - name: ping the endpoint
-        run: curl http://127.0.0.1:3838
+      - name: curl
+        uses: wei/curl@master
+        with:
+          args: http://127.0.0.1:3838
