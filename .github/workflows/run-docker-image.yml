@@ -39,6 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pull the image from dockerhub
-        run: docker pull berniegraves/shiny-dashboard:main
+        run: docker pull berniegraves/shiny-dashboard:latest
       - name: Run the iamge
-        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:main
+        run: docker run -dp 3838:3838 berniegraves/shiny-dashboard:latest
