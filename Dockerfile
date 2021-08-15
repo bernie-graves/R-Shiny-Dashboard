@@ -20,4 +20,4 @@ COPY Attributes_DataFrame.csv /shiny-app/Attributes_DataFrame.csv
 EXPOSE 3838
 
 # command to run the app
-CMD ["R", "-e", "shiny::runApp('/shiny-app', host = '127.0.0.1', port = 3838)"]
+CMD ["R", "-e", "shiny::runApp('/shiny-app', port = 3838)"]
