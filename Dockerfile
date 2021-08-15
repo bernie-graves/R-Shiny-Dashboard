@@ -17,7 +17,7 @@ COPY ./shiny-app/* /shiny-app/
 COPY Attributes_DataFrame.csv /shiny-app/Attributes_DataFrame.csv
 
 # Exposing to port 3838 - the default port for shiny apps
-EXPOSE 3838
+# EXPOSE 3838
 
 # command to run the app
-CMD ["R", "-e", "shiny::runApp('/shiny-app', port = 3838)"]
+CMD ["R", "-e", "shiny::runApp('/shiny-app', host = '0.0.0.0', port = 3838)"]
