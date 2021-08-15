@@ -16,7 +16,7 @@ jobs:
       - name: docker build
         run: docker build -t shiny-dashboard .
       - name: run and ping the image 
-        run: docker run --expose 3838 -p 3838:3838 -d --network host shiny-dashboard
+        run: docker run --expose=3838 -p 3838:3838 -d --network host shiny-dashboard
       - name: curl
         run: |
           docker ps
