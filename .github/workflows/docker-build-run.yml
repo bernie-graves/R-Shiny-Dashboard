@@ -18,5 +18,7 @@ jobs:
       - name: run and ping the image 
         run: docker run -dp 3838:3838 --network host python-playground
       - name: curl
-        run: curl http://0.0.0.0:3838
+        run: |
+          docker ps
+          curl http://0.0.0.0:3838
 
