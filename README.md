@@ -62,3 +62,4 @@ In order to only run the project you will only need Docker Desktop:
 <img src="Images/shiny_dashboard_example.png">
 <img src="Images/shiny_dashboard_example_data.png">
 
+test
