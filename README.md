@@ -57,6 +57,8 @@ In order to only run the project you will only need Docker Desktop:
   - The first action that we created built a new Docker image whenever a pull request was made (basically automatically update the current live code), This made it so if anyone made any change in the code, the docker file will automatically update the code that it holds.
   - The second action basically runs a basic test to make sure that after a change in the code was made, it didnt break anything in the dashboard.
   - Together these two GitHub actions saved us a lot of the intermidiate steps that we would have had to do everytime any change was made. 
+ 
+	---
+<img src="Images/shiny_dashboard_example.png">
+<img src="Images/shiny_dashboard_example_data.png">
 
-making pull request
-test
