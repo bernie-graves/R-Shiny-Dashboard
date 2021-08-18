@@ -9,7 +9,7 @@ movie_attributes <- read.csv(file = 'Attributes_DataFrame.csv')
 dashboardPage(
   
   skin = "green",
-  dashboardHeader(title = "Earnings data for movies",
+  dashboardHeader(title = "Earnings data for moviess",
                   titleWidth = 350
                   ),
 
