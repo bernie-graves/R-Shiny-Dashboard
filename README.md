@@ -82,7 +82,7 @@ These are the steps you need to follow to deploy the dashboard using Azure:
 7. Click "Review and Create"
 8. Navigate to the resource overview then select "Configuration" on the sidebar.
 	<img src="Images/azure_config_sidebar.png">
-9. Click on "New Application Setting" and type "WEBSITE_PORT" name and "3838" for value.
+9. Click on "New Application Setting" and type "WEBSITE_PORT" name and "3838" for value, then click save at the top of the page.
 	<img src="Images/azure_config_port.png">
 
 Congrats!! Your web app has been deployed
@@ -91,9 +91,9 @@ Congrats!! Your web app has been deployed
 In order to make CI/CD easier, we made a GitHub Actions workflow to automate deployment on pushed to the main branch. Luckily, Azure makes this easy. Before beginning, if you cloned this repository you need to navigate to the workflows folder and delete `main_shiny-dashboard.yml`.
 1. Navigate to the resource overview page a select "Deployment Center"
 	<img src="Images/azure_deployment_sidebar.png">
-2. Select "Authorize" to allow Azure to connect to your GitHub account.
+2. Select "GitHub Actions" and then click "Authorize" to allow Azure to connect to your GitHub account. The Authorize button will be a green button arounf the center of the screen.
 3. You might need to refresh after authorizing, but it should look like this. Now you need to fill in the necessary information about the GitHub repository, Your Docker Hub sign in information and image name.
 	<img src="Images/azure_deployment_settings.png">
-4. Click "save" at the top. This will create a workflow file in the Github repository.
+4. Click "save" at the top. This will create a workflow file named "main_shiny-dashboard" in the Github repository.
 	<img src="Images/github_workflows.png">
 Now the dashboard will update when changes are pushed to the repository. 
