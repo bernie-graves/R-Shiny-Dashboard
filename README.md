@@ -68,32 +68,32 @@ We deployed our dashboard to the cloud using Microsoft Azure's app service.
 These are the steps you need to follow to deploy the dashboard using Azure:
 1. Login in to or create an account with Microsoft Azure. 
 2. Select "Create a resource" and create a "Web App" 
- <img src="Images/azure_home.png">
- <img src="Images/azure_create_resource.png">
+	<img src="Images/azure_home.png">
+	<img src="Images/azure_create_resource.png">
 3. Select or create a resource group which acts as a folder for this resource and give the resource a name, this will act as the url.
-<img src="Images/azure_group_and_name.png">
+	<img src="Images/azure_group_and_name.png">
 4. Select "Docker Container" and the region you want the server to based in.
-<img src="Images/azure_docker_and_region.png">
+	<img src="Images/azure_docker_and_region.png">
 5. Select the App Service Plan and specs you need for the dashboard
-<img src="Images/azure_app_service_plan.png">
+	<img src="Images/azure_app_service_plan.png">
 <img src="Images/azure_specs.png">
 6. Click "Next", then you will need to select the container registry you are using, in this case Docker Hub. Then you need to fill in the name of the image being deployed.
-<img src="Images/azure_container_registry.png">
+	<img src="Images/azure_container_registry.png">
 7. Click "Review and Create"
 8. Navigate to the resource overview then select "Configuration" on the sidebar.
-<img src="Images/azure_config_sidebar.png">
+	<img src="Images/azure_config_sidebar.png">
 9. Click on "New Application Setting" and type "WEBSITE_PORT" name and "3838" for value.
-<img src="Images/azure_config_port.png">
+	<img src="Images/azure_config_port.png">
 
 Congrats!! Your web app has been deployed
 
 ### Creating GitHub workflow
 In order to make CI/CD easier, we made a GitHub Actions workflow to automate deployment on pushed to the main branch. Luckily, Azure makes this easy. Before beginning, if you cloned this repository you need to navigate to the workflows folder and delete `main_shiny-dashboard.yml`.
 1. Navigate to the resource overview page a select "Deployment Center"
-<img src="Images/azure_deployment_sidebar.png">
+	<img src="Images/azure_deployment_sidebar.png">
 2. Select "Authorize" to allow Azure to connect to your GitHub account.
 3. You might need to refresh after authorizing, but it should look like this. Now you need to fill in the necessary information about the GitHub repository, Your Docker Hub sign in information and image name.
-<img src="Images/azure_deployment_settings.png">
+	<img src="Images/azure_deployment_settings.png">
 4. Click "save" at the top. This will create a workflow file in the Github repository.
-<img src="Images/github_workflows.png">
+	<img src="Images/github_workflows.png">
 Now the dashboard will update when changes are pushed to the repository. 
